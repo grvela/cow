@@ -1,31 +1,29 @@
-## happy path
+## greet path
 * greet
   - utter_greet
-* mood_great
-  - utter_happy
 
-## sad path 1
-* greet
-  - utter_greet
-* mood_unhappy
-  - utter_cheer_up
-  - utter_did_that_help
-* affirm
-  - utter_happy
+## who path
+* who_we_are
+  - utter_who_we_are
 
-## sad path 2
-* greet
-  - utter_greet
-* mood_unhappy
-  - utter_cheer_up
-  - utter_did_that_help
-* deny
-  - utter_goodbye
+## local path
+* local
+  - utter_local
 
-## say goodbye
+## services path
+* services
+  - utter_services
+
+## contact path
+* contact 
+  - utter_contact
+
+## goodbye path
 * goodbye
   - utter_goodbye
 
-## bot challenge
-* bot_challenge
-  - utter_iamabot
+
+
+## menu path 
+* menu
+  - action_check_number

@@ -1,27 +1,21 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/core/actions/#custom-actions/
+from rasa_sdk import Action
+from rasa_sdk.events import SlotSet
+from rasa_sdk.executor import CollectingDispatcher
 
+class FetchProfileAction(Action):
+    def name(self):
+        return "action_check_number"
 
-# This is a simple example for a custom action which utters "Hello World!"
-
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
+    def run(self, dispatcher, tracker, domain):
+        num = tracker.get_slot("num_menu")
+        num = int(num)
+        if num == 1:
+            dispatcher.utter_message(template="utter_who_we_are")
+        elif num == 2:
+            dispatcher.utter_message(template="utter_local")
+        elif num == 3:
+            dispatcher.utter_message(template="utter_services")
+        elif num == 4:
+            dispatcher.utter_message(template="utter_contact")
+        elif num > 4 or num < 1:
+            dispatcher.utter_message("Digite uma opção válida")

@@ -1,31 +1,60 @@
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - who_we_are
+  - local
+  - services
+  - contact
+  - menu
+
+entities:
+  - num_menu
+
+slots:
+  num_menu:
+    type: text
+    
+actions:
+- action_check_number
+
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Olá, seja bem-vindo(a) a Coltech, consultoria de engenharia junior: \n
+          Eu sou o COW, chatbot de atendimento! Me faça uma pergunta sobre os serviços que a coltech oferece: \n
+          Ex: Posso saber mais a respeito da coltech? \n
+          Se precisar de ajuda, aqui está um menu para auxilio \n
+          1 - Quem somos \n
+          2 - Nossa localização \n
+          3 - Nossos Serviços \n
+          4 - Fale com a gente \n"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+        
+  utter_who_we_are:
+  - text: "A Coltech Consultoria é uma Empresa Júnior da Faculdade de Tecnologia da 
+           Universidade Federal do Amazonas. Fundada em 29 de abril de 2016, a Coltech
+           é composta por alunos do curso de Engenharia Mecânica, Elétrica e Computação. \n
+           Já desenvolvemos mais de 50 projetos de alta qualidade e impacto no mercado, 
+           sendo nossos principais valores a transparência, o comprometimento, a postura
+          empreendedora, o foco em resultados e o orgulho de ser Coltech!"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_local:
+  - text: "Nossa sede é aqui, dá uma olhada: https://goo.gl/maps/CMrWuunWRTrEk31p6"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_services:
+  - text: "Estou te enviando nossa carta de serviços!!"
+
+  utter_contact:
+  - text: "Você pode entrar em contato por: \n
+          Presidência - (92) 991176606\n
+          Diretoria Comercial - (92) 99128-5495\n
+          Atendimento: atendimento@coltechconsultoria.com.br"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Agradecemos por lembrar da Coltech, volte sempre!!"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+ 
+
 
 session_config:
   session_expiration_time: 60
