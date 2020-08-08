@@ -14,8 +14,9 @@ slots:
   num_menu:
     type: text
     
+
 actions:
-- action_check_number
+  - action_check
 
 
 responses:
@@ -54,8 +55,6 @@ responses:
   - text: "Agradecemos por lembrar da Coltech, volte sempre!!"
 
  
-
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

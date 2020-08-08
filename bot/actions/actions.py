@@ -2,9 +2,10 @@ from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 
-class FetchProfileAction(Action):
+class CheckNumberAction(Action):
     def name(self):
-        return "action_check_number"
+        return "action_check"
+
 
     def run(self, dispatcher, tracker, domain):
         num = tracker.get_slot("num_menu")

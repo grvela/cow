@@ -26,4 +26,4 @@
 
 ## menu path 
 * menu
-  - action_check_number
+  - action_check
