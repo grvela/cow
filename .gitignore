@@ -2,3 +2,4 @@ __pycache__/
 .venv/
 bot/models/
 whatsapp/node_modules/
+.requirements.txt
