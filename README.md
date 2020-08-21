@@ -4,19 +4,9 @@ COW - Chatbot para Whatsapp
 
 </h1>
 
-<p  align="center">
-
-<img  alt="progress"  src="https://img.shields.io/badge/status-in_progress-blue">
-
-</p>
-
 <h4  align="center">
 
-<a  href="#pencil-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-
-<a  href="#rocket-stack">Stack</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-
-<a  href="#blue_book-configurando-ambiente">Configurando ambiente</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a  href="#pencil-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a  href="#rocket-stack">Stack</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a  href="#blue_book-configurando-ambiente">Configurando ambiente</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 
 </h4>
 
@@ -61,6 +51,8 @@ Integrar tecnologias de automação ao whatsapp
 
 ### Usando máquina virtual  
 
+OBS: Este passo não é necessário com o uso de docker
+
 Antes de começar, é preciso ter duas ferramentas instaladas:
 
 - **Pyenv** : Permite que você instale outras versões do python em sua máquina
@@ -72,7 +64,7 @@ Antes de começar, é preciso ter duas ferramentas instaladas:
 
 # clone o projeto
 
-git https://github.com/grvela/chatterbox.git
+git https://github.com/grvela/cow.git
 
 # instale a versão 
 
@@ -98,14 +90,14 @@ pyenv virtualenv 3.7.0 nome_da_máquina_virtual
 # ative sua máquina virtual
 
 pyenv activate nome_da_máquina_virtual
-
-  
-
-# Por fim, instale as tecnologias utilizadas
-
-pip install -r requirements.txt
-
 ```
+Por fim, instale as tecnologias utilizadas
+```bash
+pip install -r requirements.txt
+```
+
+## :unlock: Rodando o Projeto
+
 ### Usando Docker
 
 Antes de começar, é preciso ter duas ferramentas instaladas:
@@ -114,10 +106,14 @@ Antes de começar, é preciso ter duas ferramentas instaladas:
 
 - **Docker Compose**: Permite rodar multiplos containeres 
 
+No diretório cow/bot, é preciso treinar o modelo de chatbot:
 ```bash
- //TO DO 
+ docker run --user 1000 -v $(pwd):/app rasa/rasa:1.10.8-full train --domain domain.yml --data data --out models
+```
+Para colocar o bot em funcionamento:
+```bash
  docker-compose up
 ```
-    
+
 
 ## Bom code! ##
