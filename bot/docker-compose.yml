@@ -1,20 +1,18 @@
-version: '3.0'
+version: "3.0"
 services:
   rasa:
-    image: 'rasa/rasa:1.10.8-full'
-    ports: 
+    image: "rasa/rasa:1.10.11-full"
+    ports:
       - 5005:5005
     volumes:
       - ./:/app
     command:
-      - run 
+      - run
   server:
-    image: 'rasa/rasa-sdk:1.10.2'
+    image: "rasa/rasa-sdk:1.10.2"
     depends_on:
       - rasa
     volumes:
       - ./actions:/app/actions
-    ports: 
+    ports:
       - 5055:5055
-   
-    
