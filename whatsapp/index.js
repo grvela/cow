@@ -48,8 +48,14 @@ client.on('message', msg => {
                 'message': msg.body
             })
             .then(function(response){
-                console.log(response.data)
-
+                return JSON.stringify(response.data[0])            
+            })
+            .then(function(response){
+                const message = JSON.parse(response)
+                client.sendMessage(msg.from, message.text)
+            })
+            .catch(function(error){
+                console.log(error);
             })
                    
 });
